@@ -7,3 +7,22 @@ header {
 h4 {
     font-weight: bold;
 }
+
+#city, .btn {
+    width: 100%;
+}
+
+.btn {
+    margin: 10px 0px;
+    background-color: rgb(66, 133, 215);
+    color: white;
+}
+
+.btn:hover {
+    background-color: navy;
+}
+
+#search {
+    border: none;
+}
+

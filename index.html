@@ -17,40 +17,41 @@
         <h1>Weather Dashboard</h1>
     </header>
 
-    <main class="container">
-        <!--input column-->
-        <section class="row" id="left">
-            <div class="card col-3" id="search">
-                <h4>Search for a City:</h4>
-                <form>
-                    <input type="text" id="city" placeholder="Enter City Name"/>
-                    <button type="submit" class="btn">Search</button>
-                </form>
-            </div>
+    <main class="container-fluid ">
+        <div class="row">
+            <!--input column-->
+            <section id="left">
+                <div class="card col" id="search">
+                    <h4>Search for a City:</h4>
+                    <form>
+                        <input type="text" id="city" placeholder="Enter City Name"/>
+                        <button type="submit" class="btn">Search</button>
+                    </form>
+                </div>
+            
+
+                <div class="city-list">
+            
+                </div>
+            </section>
         
 
-            <div class="city-list">
+            <!--display section-->
+            <section id="right">
+                <div class="col">
+                    <div id="current">
+                        <h4>Current Conditions:</h4>
+                    </div>
 
-            </div>
-        </section>
-      
+                    <div id="five-day">
+                        <h4>5-Day Forecast:</h4>
+                        <div id="forecast">
 
-        <!--display section-->
-        <section class="row" id="right">
-            <div class="col-9">
-                <div id="current">
-                    <h4>Current Conditions:</h4>
-                </div>
-
-                <div id="five-day">
-                    <h4>5-Day Forecast:</h4>
-                    <div id="forecast">
-
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-  
+            </section>
+        </div>
     </main>
     <script src="./assets/script.js"></script>
 </body>
