@@ -10,11 +10,33 @@ for (var i = 0; i < cityArray.length; i++) {
     var btn = document.createElement("button");
     btn.value = cityArray[i];
     btn.innerText = cityArray[i];
-    btn.addEventListener("click", getForecast);
+    btn.addEventListener("click", firstAPI);
     cityList.appendChild(btn);    
 }
 
+//function for city buttons
+function firstAPI(event) {
+    var cityName;
+    if(city.value.trim() == "") {
+        cityName = event.target.value;
+    } else {
+        cityName = city.value;
+    }
+
+    var response = fetch("https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey)
+    //console.log(cityName);
+    .then(function(response) {
+        response.json().then(function(data) {
+            console.log(data);
+            var lat = data.coord.lat;
+            var lon = data.coord.lon;
+            getForecast2(lat, lon);
+        });
+    });
+}
+
 button.addEventListener("click", getForecast);
+//need to clear form
 
 function getForecast(event) {
     event.preventDefault();
@@ -53,9 +75,9 @@ var getForecast2 = function(lat, lon) {
             response.json().then(function(data) {
                 console.log(data);
                 
-                for (var i = 0; i <= 6; i++) {
+                for (var i = 0; i < 6; i++) {
                     var temp = document.querySelector(`#temp${i + 1}`)
-                    temp.innerText = data.daily[i].temp.max //convert temp
+                    temp.innerText = k2f(data.daily[i].temp.max)
 
                     var wind = document.querySelector(`#wind${i + 1}`)
                     wind.innerText = data.daily[i].wind_speed
@@ -66,10 +88,17 @@ var getForecast2 = function(lat, lon) {
                     var uvIndex = document.querySelector(`#uvIndex${i + 1}`)
                     uvIndex.innerText = data.daily[i].uvi 
                 }
+            
+            //convert temp to F
+            function k2f(temp) {
+                return Math.floor((temp - 273.15) * 1.8 + 32)
+            }
                     
             });
         });
 };
 
 
-//Five Day Forecast
+
+
+
