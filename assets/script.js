@@ -24,7 +24,6 @@ function firstAPI(event) {
     }
 
     var response = fetch("https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey)
-    //console.log(cityName);
     .then(function(response) {
         response.json().then(function(data) {
             console.log(data);
@@ -32,6 +31,7 @@ function firstAPI(event) {
             var lon = data.coord.lon;
             getForecast2(lat, lon);
         });
+        console.log(cityName); 
     });
 }
 
@@ -77,22 +77,46 @@ var getForecast2 = function(lat, lon) {
                 
                 for (var i = 0; i < 6; i++) {
                     var temp = document.querySelector(`#temp${i + 1}`)
-                    temp.innerText = k2f(data.daily[i].temp.max)
+                    temp.innerText = "Temperature: " + k2f(data.daily[i].temp.max) + "F"
 
                     var wind = document.querySelector(`#wind${i + 1}`)
-                    wind.innerText = data.daily[i].wind_speed
+                    wind.innerText = "Wind Speed: " + Math.floor(data.daily[i].wind_speed) + "MPH"
 
                     var humidity = document.querySelector(`#humidity${i + 1}`)
-                    humidity.innerText = data.daily[i].humidity
+                    humidity.innerText = "Humidity: " + data.daily[i].humidity + "%"
 
                     var uvIndex = document.querySelector(`#uvIndex${i + 1}`)
-                    uvIndex.innerText = data.daily[i].uvi 
+                    uvIndex.innerText = "UV Index: " + (Math.floor(data.daily[i].uvi)) 
+                    //uvIndex.classList.add(colorWarning);
                 }
             
             //convert temp to F
             function k2f(temp) {
                 return Math.floor((temp - 273.15) * 1.8 + 32)
             }
+
+            //UV color warning
+            //function uInd(uvIndex) {
+                //var uv = parseFloat(uvIndex);
+                //var color = document.querySelector(".uv");
+                //var colorWarning;
+
+                //if (uv <= 3) {
+                    //favorable
+                    //colorWarning = uv, ("bg-success");
+                //} 
+
+                //else if (uv <= 7) {
+                    //moderate
+                    //colorWarning = uv, ("bg-warning");
+                //}
+
+                //else { 
+                    //severe
+                     //colorWarning = uv.classList.add("bg-danger");
+                //}
+                //return colorWarning;
+            //}
                     
             });
         });

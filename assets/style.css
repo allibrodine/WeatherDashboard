@@ -9,7 +9,7 @@ h4 {
 }
 
 #city, .btn {
-    width: 100%;
+    width: 90%;
 }
 
 .btn {
@@ -27,7 +27,17 @@ h4 {
 }
 
 button {
-    width: 87%;
-    margin: 10px 18px;
+    width: 90%;
+    margin: 10px 0;
     border-radius: 4px;
 }
+
+#current {
+    border: 2px solid black;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+/*.uv {
+    background-color: black;
+}*/

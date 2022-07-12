@@ -17,11 +17,12 @@
         <h1>Weather Dashboard</h1>
     </header>
 
-    <main class="container-fluid ">
+    <main class="container-fluid">
         <div class="row">
             <!--input column-->
-            <section id="left">
-                <div class="card col" id="search">
+            <section class="col-3" id="left">
+        
+                <div class= "card" id="search">
                     <h4>Search for a City:</h4>
                     <form>
                         <input type="text" id="city" placeholder="Enter City Name"/>
@@ -29,10 +30,9 @@
                     </form>
                 </div>
             
+                <!--list of cities searched-->
+                <div class="city-list"></div>
 
-                <div class="city-list">
-            
-                </div>
             </section>
         
 
@@ -45,51 +45,51 @@
                             <p id="temp1"></p>
                             <p id="wind1"></p>
                             <p id="humidity1"></p>
-                            <p id="uvIndex1"></p>
+                            <p id="uvIndex1" class="uv"></p>
                             <img src=""></img>
                         </div>
                     </div>
 
                     <div id="five-day">
                         <h4>5-Day Forecast:</h4>
-                        <div id="forecast">
-                            <div>
+                        <div id="forecast" class="row">
+                            <div class="col bg-primary text-white ml-3 pt-3 rounded">
                                 <p id="temp2"></p>
                                 <p id="wind2"></p>
                                 <p id="humidity2"></p>
-                                <p id="uvIndex2"></p>
+                                <p id="uvIndex2" class="uv"></p>
                                 <img src=""></img>
                             </div>
 
-                            <div>
+                            <div class="col bg-primary text-white ml-3 pt-3 rounded">
                                 <p id="temp3"></p>
                                 <p id="wind3"></p>
                                 <p id="humidity3"></p>
-                                <p id="uvIndex3"></p>
+                                <p id="uvIndex3" class="uv"></p>
                                 <img src=""></img>
                             </div>
 
-                            <div>
+                            <div class="col bg-primary text-white ml-3 pt-3 rounded">
                                 <p id="temp4"></p>
                                 <p id="wind4"></p>
                                 <p id="humidity4"></p>
-                                <p id="uvIndex4"></p>
+                                <p id="uvIndex4" class="uv"></p>
                                 <img src=""></img>
                             </div>
 
-                            <div>
+                            <div class="col bg-primary text-white ml-3 pt-3 rounded">
                                 <p id="temp5"></p>
                                 <p id="wind5"></p>
                                 <p id="humidity5"></p>
-                                <p id="uvIndex5"></p>
+                                <p id="uvIndex5" class="uv"></p>
                                 <img src="">
                             </div>
 
-                            <div>
+                            <div class="col bg-primary text-white ml-3 pt-3 rounded">
                                 <p id="temp6"></p>
                                 <p id="wind6"></p>
                                 <p id="humidity6"></p>
-                                <p id="uvIndex6"></p>
+                                <p id="uvIndex6" class="uv"></p>
                                 <img src=""></img>
                             </div>
                         </div>
